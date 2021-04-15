@@ -1,0 +1,184 @@
+body{
+    margin:0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.left-pane1{
+    background-image: url('/images/_MG_0194.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.left-pane2{
+    background-image: url('/images/Utd-4ver.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.left-pane3{
+    background-image: url('/images/_MG_9476.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.left-pane4{
+    background-image: url('/images/the-blues.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.left-pane5{
+    background-image: url('/images/_MG_9082.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .left-pane1, .left-pane2, .left-pane3, .left-pane4, .left-pane5 {
+      width: 100%;
+      height: 30vh;
+    }
+
+    .form-layout{
+        margin-top:-10px !important;
+
+    }
+}
+
+.carousel-layout{
+    margin-left: 0px !important;
+    height: 50% !important;
+    width: 50% !important;
+}
+
+.mainleft{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.form-layout{
+    margin-top: 100px;
+    padding: 10px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+.form-control{
+    border: 0 !important;
+	border-bottom: 1px solid #c1c1c1 !important;
+	text-align: left !important;
+	margin-top: 50px !important;
+}
+
+.gender{
+    margin-top:30px;
+}
+
+
+
+.form-check-inline{
+    padding: 10px;
+    
+}
+/*#other{
+
+}*/
+
+.image-preview{
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #ddd;
+        margin-top: 15px;
+
+
+        /* default text */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #ccc;
+    }
+
+
+    .image-preview__image{
+        display: none;
+        width: 100%;
+    }
+
+#mother_contact{
+    display: block;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;  
+}
+#other_role{
+    display: none;
+    \-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;  
+}
+
+#father_contact{
+    display: block;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+#otherBaptism{
+    display: none;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+#spouse-name, #other{
+    display: none;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/* .carousel-item {
+    height: 100%;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+    } */
