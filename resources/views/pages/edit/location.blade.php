@@ -89,7 +89,7 @@
                     </div>
 
                    </div>
-                   <input type="submit" class="btn btn-success" value="Next">
+                   <input type="submit" class="btn btn-success" value="Finish">
                <div class="col-md-3"></div>
            </div>
        </form>

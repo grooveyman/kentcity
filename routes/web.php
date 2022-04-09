@@ -59,6 +59,9 @@ Route::get('/finish', function(){
 })->name('finish');
 
 Route::get('/edit/{id}', [MemberController::class, 'edit']);
+Route::get('/editOne/{id}', [MemberController::class, 'editOne']);
+Route::get('/editTwo/{id}', [MemberController::class, 'editTwo']);
+Route::get('/editThree/{id}', [MemberController::class, 'editThree']);
 
 Route::post('/edit/first/{id}', [MemberController::class, 'addEditOne']);
 Route::post('/edit/editLocation/{id}', [MemberController::class, 'editLocation']);
@@ -70,8 +73,23 @@ Route::get('/editPicturee/{id}', [MemberController::class,'editPictureShow']);
 Route::get('/view', [MemberController::class, 'view']);
 Route::post('/view/search', [MemberController::class, 'action'])->name('live_search');
 
-Route::get('/view/profile', [MemberController::class, 'showProfile']);
+Route::get('/admin', [MemberController::class, 'showProfile']);
 
 
 
 Route::get('/editBioInfo/{id}', [MemberController::class, 'editBioInfo']);
+
+Route::get('/viewEdit/{id}', [MemberController::class, 'showCategoryEdit']);
+
+// Route::get('/viewEdit', function(){
+// 	return view('pages.edit.viewEdit');
+// });
+
+
+Route::get('/parallax', function(){
+	return view('website.parallax');
+});
+
+Route::get('/website/home', function(){
+	return view('website.home');
+});

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Region;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class RegionController extends Controller
 {
@@ -12,6 +13,22 @@ class RegionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function addRegion(Request $request){
+        $region = new Region;
+        $region->name = $request->name;
+        $region->created_at = Carbon::now()->format("Y-m-d H:i:s");
+        $region->updated_at = Carbon::now()->format("Y-m-d H:i:s");
+        $result = $region->save();
+
+        if($result){
+            return ["Result" => "Data has been saved"];
+        }else{
+            return ["Result" => "Operation failed"];
+        }
+        
+    }
+
     public function index()
     {
         //

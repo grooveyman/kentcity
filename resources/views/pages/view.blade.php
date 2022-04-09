@@ -1,4 +1,4 @@
-@extends('layouts.details')
+@extends('layouts.admin')
 @section('title','CHURCH DATABASE')
 @section('header', 'VIEW MEMBERS')
 @section('body')
@@ -6,7 +6,7 @@
 
 <div class="container">
 
-	<div class="row" style="margin-top: 50px;">
+	<div class="row" style="margin-top: 0px;">
 		<!-- search -->
 		<div class="navbar-nav ml-auto">
 				<div class="row">

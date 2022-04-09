@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
+
+    function list($id=null){
+        return  $id? Member::find($id) : Member::all();
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -42,8 +48,11 @@ class MemberController extends Controller
     }
 
     public function showProfile(){
-        $members = Member::all();
-        return view('pages.profile', ['members' => $members]);
+
+        $members_count = Member::all()->count();
+        $members = Member::paginate(6);
+        
+        return view('pages.profile', ['members' => $members, 'members_count' => $members_count]);
     }
 
      
@@ -153,7 +162,13 @@ class MemberController extends Controller
         $member->place_of_baptism = $request->bap_place;
         $member->method_of_baptism = $request->method_bap;
         $member->other_method = $request->other_bap;
-        $member->role_id = $request->role;
+        
+        if($member->role_id == ""){
+            $member->role_id = 8;
+        }else{
+            $member->role_id = $request->role;
+        }
+        
         $member->other_role = $request->other_role;
         $member->save();
 
@@ -213,6 +228,42 @@ class MemberController extends Controller
 
     }
 
+     public function editOne(Member $member, $id)
+    {
+        //
+        $members = Member::where('id', $id)->first();
+        return view('pages.edit.location',['members' => $members]);
+
+
+    }
+
+public function editTwo(Member $member, $id)
+    {
+        //
+        $members = Member::where('id', $id)->first();
+        return view('pages.edit.education',['members' => $members]);
+
+
+    }
+
+    public function editThree(Member $member, $id)
+    {
+        //
+        $members = Member::where('id', $id)->first();
+        return view('pages.edit.education',['members' => $members]);
+
+
+    }
+
+    //     public function editThree(Member $member, $id)
+    // {
+    //     //
+    //     $members = Member::where('id', $id)->first();
+    //     return view('pages.edit.baptism',['members' => $members]);
+
+
+    // }
+
     public function addEditOne(Request $request, $id){
 
         if($request->byear == '1920' and $request->bday == '1'){
@@ -232,8 +283,8 @@ class MemberController extends Controller
         $member->birthday = $bdayFinal;
         $member->save();
 
-        $members = Member::where('surname', '=', $request->surname)->where('firstname', '=', $request->firstname)->first();
-        return view('pages.edit.location', ['members'=> $members]);
+        $members = Member::where('id', $id)->first();
+        return view('pages.edit.viewEdit', ['member'=> $member]);
     }
 
     public function editBioInfo($id){
@@ -251,8 +302,8 @@ class MemberController extends Controller
         $member->spouse_name = $request->spouse_name;
         $member->save();
 
-        $members = Member::where('id', $id)->first();
-        return view('pages.edit.education', ['members' => $members]);
+        $member = Member::where('id', $id)->first();
+        return view('pages.edit.viewEdit', ['member' => $member]);
 
     }
 
@@ -285,7 +336,7 @@ class MemberController extends Controller
         $member->save();
 
         $members = Member::where('id', $id)->first();
-        return view('pages.edit.baptism', ['members' => $members]);
+        return view('pages.edit.viewEdit', ['member' => $member]);
     }
 
 
@@ -294,8 +345,16 @@ class MemberController extends Controller
         $member->place_of_baptism = $request->bap_place;
         $member->method_of_baptism = $request->method_bap;
         $member->other_method = $request->other_bap;
-        $member->role_id = $request->role;
+
+         if($member->role_id == ""){
+            $member->role_id = 8;
+        }else{
+            $member->role_id = $request->role;
+        }
+        
         $member->other_role = $request->other_role;
+        // $member->role_id = $request->role;
+        // $member->other_role = $request->other_role;
         $member->save();
 
          $members = Member::where('id', $id)->first();
@@ -340,5 +399,14 @@ class MemberController extends Controller
     public function destroy(Member $member)
     {
         //
+    }
+
+
+
+    //view edit functions
+
+    public function showCategoryEdit($id){
+        $member = Member::where('id',$id)->with('region', 'role')->first();
+        return view('pages.edit.viewEdit', ['member'=> $member]);
     }
 }
